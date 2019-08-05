@@ -1,22 +1,30 @@
-import { Component } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: 'event-thumbnail',
+  selector: 'program-thumbnail',
   template: `
     <div class="well hoverwell thumbnail">
-      <h2>{{event.name}}</h2>
-      <div>Date: {{event.date}}</div>
-      <div>Time: {{event.time}}</div>
-      <div>Price: \${{event.price}}</div>
+      <h2>{{program.name}}</h2>
+      <div>Date: {{program.date}}</div>
+      <div>Time: {{program.time}}</div>
+      <div>Price: \${{program.price}}</div>
       <div>
-        <span>Location: {{event.location.address}}</span>
+        <span>Location: {{program.location.address}}</span>
         <span>&nbsp;</span>
-        <span>{{event.location.city}}, {{event.location.country}}</span>
+        <span>{{program.location.city}}, {{program.location.country}}</span>
       </div>
+      <button class="btn btn-primary" (click)="handleClickMe()">Click me!</button>
     </div>
   `,
 })
 
 export class EventThumbnailComponent {
-  // @Input() event: any
+  @Input() program: any
+  @Output() eventClick = new EventEmitter();
+
+  handleClickMe() {
+    // console.log('Clicked');
+    this.eventClick.emit(this.program.name);
+    
+  }
 }
