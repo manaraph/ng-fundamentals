@@ -5,13 +5,14 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
   template: `
     <div class="well hoverwell thumbnail">
       <h2>{{program.name}}</h2>
-      <div>Date: {{program.date}}</div>
-      <div>Time: {{program.time}}</div>
-      <div>Price: \${{program.price}}</div>
+      <div>Date: {{program?.date}}</div>
+      <div>Time: {{program?.time}}</div>
+      <div>Price: \${{program?.price}}</div>
       <div>
-        <span>Location: {{program.location.address}}</span>
-        <span class="pad-left">{{program.location.city}}, {{program.location.country}}</span>
+        <span>Location: {{program?.location?.address}}</span>
+        <span class="pad-left">{{program?.location?.city}}, {{program?.location?.country}}</span>
       </div>
+      <div>Online Url: {{ program?.onlineUrl}} </div>
       <button class="btn btn-primary">Click me!</button>
     </div>
   `,
