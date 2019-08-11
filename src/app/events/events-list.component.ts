@@ -5,7 +5,7 @@ import { Component } from "@angular/core";
   template: `
     <div>
       <h1>Upcoming Angular events</h1>
-      <hr/>  
+      <hr/>
       <event-thumbnail #thumbnail (eventClick)="handleEventClicked($event)" [program]="event1"></event-thumbnail>
       <h3>{{thumbnail.someProperty}}</h3>
       <button class="btn btn-primary" (click)="thumbnail.logFoo()">Log me some Foo</button>
