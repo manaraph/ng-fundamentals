@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: 'program-thumbnail',
+  selector: 'event-thumbnail',
   template: `
     <div class="well hoverwell thumbnail">
       <h2>{{program.name}}</h2>
