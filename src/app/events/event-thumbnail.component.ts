@@ -10,12 +10,15 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
       <div>Price: \${{program.price}}</div>
       <div>
         <span>Location: {{program.location.address}}</span>
-        <span>&nbsp;</span>
-        <span>{{program.location.city}}, {{program.location.country}}</span>
+        <span class="pad-left">{{program.location.city}}, {{program.location.country}}</span>
       </div>
       <button class="btn btn-primary" (click)="handleClickMe()">Click me!</button>
     </div>
   `,
+  styles: [`
+    .pad-left { margin-left: 10px; }
+    .well div { color: #bbb; }
+  `]
 })
 
 export class EventThumbnailComponent {
