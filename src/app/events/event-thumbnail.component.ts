@@ -3,7 +3,7 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 @Component({
   selector: 'event-thumbnail',
   template: `
-    <div class="well hoverwell thumbnail">
+    <div [routerLink]="['/events', event.id]" class="well hoverwell thumbnail">
       <h2>{{event.name}}</h2>
       <div>Date: {{event?.date}}</div>
       <div [ngStyle]="getStartTimeStyle()" [ngSwitch]="event?.time">
@@ -18,7 +18,6 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
         <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
       </div>
       <div [hidden]="!event?.onlineUrl">Online Url: {{ event?.onlineUrl}} </div>
-      <button id="myButton" class="btn btn-primary">Click me!</button>
     </div>
   `,
   styles: [`
