@@ -12,9 +12,10 @@
       <div><strong>Date:</strong> {{event?.date}}</div>
       <div><strong>Time:</strong> {{event?.time}}</div>
       <div><strong>Price:</strong> ${{event?.price}}</div>
+      <div *ngIf="event?.onlineUrl">Online Url: {{ event?.onlineUrl}} </div>
     </div>
     <div class="col-md-6">
-      <address>
+      <address *ngIf="event?.location">
         <strong>Address:</strong><br />
         {{event?.location?.address}}<br />
         {{event?.location?.city}}, {{event?.location?.country}}

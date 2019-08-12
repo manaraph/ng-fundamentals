@@ -4,20 +4,20 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
   selector: 'event-thumbnail',
   template: `
     <div class="well hoverwell thumbnail">
-      <h2>{{program.name}}</h2>
-      <div>Date: {{program?.date}}</div>
-      <div [ngStyle]="getStartTimeStyle()" [ngSwitch]="program?.time">
-        Time: {{program?.time}}
+      <h2>{{event.name}}</h2>
+      <div>Date: {{event?.date}}</div>
+      <div [ngStyle]="getStartTimeStyle()" [ngSwitch]="event?.time">
+        Time: {{event?.time}}
         <span *ngSwitchCase="'8:00 am'">(Early Start)</span>
         <span *ngSwitchCase="'10:00 am'">(Late Start)</span>
         <span *ngSwitchDefault>(Normal Start)</span>
       </div>
-      <div>Price: \${{program?.price}}</div>
-      <div *ngIf="program?.location">
-        <span>Location: {{program?.location?.address}}</span>
-        <span class="pad-left">{{program?.location?.city}}, {{program?.location?.country}}</span>
+      <div>Price: \${{event?.price}}</div>
+      <div *ngIf="event?.location">
+        <span>Location: {{event?.location?.address}}</span>
+        <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
       </div>
-      <div [hidden]="!program?.onlineUrl">Online Url: {{ program?.onlineUrl}} </div>
+      <div [hidden]="!event?.onlineUrl">Online Url: {{ event?.onlineUrl}} </div>
       <button id="myButton" class="btn btn-primary">Click me!</button>
     </div>
   `,
@@ -32,29 +32,29 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 })
 
 export class EventThumbnailComponent {
-  @Input() program: any 
+  @Input() event: any 
   
   getStartTimeClass(){
     // HTML
-    // <div [ngClass]="getStartTimeClass()" [ngSwitch]="program?.time">
+    // <div [ngClass]="getStartTimeClass()" [ngSwitch]="event?.time">
     // Possible options
 
-    // green: program?.time === '8:00 am', bold: program?.time === '8:00 am'
+    // green: event?.time === '8:00 am', bold: event?.time === '8:00 am'
     
-    // const isEarlyStart = this.program && this.program.time === '8:00 am'
+    // const isEarlyStart = this.event && this.event.time === '8:00 am'
     // return { green: isEarlyStart, bold: isEarlyStart};
 
-    // if(this.program && this.program.time === '8:00 am')
+    // if(this.event && this.event.time === '8:00 am')
     //   return 'green bold';
     // return '';
 
-    if(this.program && this.program.time === '8:00 am')
+    if(this.event && this.event.time === '8:00 am')
       return ['green', 'bold'];
     return [];
   }
 
   getStartTimeStyle():any {
-    if(this.program && this.program.time === '8:00 am')
+    if(this.event && this.event.time === '8:00 am')
       return { color: '#003300', 'font-weight': 'bold' };
     return {};
   }

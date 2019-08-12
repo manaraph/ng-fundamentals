@@ -12,7 +12,7 @@ declare let toastr;
       <hr/>
       <div class="row">
         <div *ngFor="let event of events" class="col-md-4">
-          <event-thumbnail (click)="handleThumbnailClick(event.name)" [program]="event"></event-thumbnail>
+          <event-thumbnail (click)="handleThumbnailClick(event.name)" [event]="event"></event-thumbnail>
         </div>
       </div>
     </div>
