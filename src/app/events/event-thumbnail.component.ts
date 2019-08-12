@@ -1,4 +1,7 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { ToastrService } from '../common/toastr.service';
+
+// declare let toastr;
 
 @Component({
   selector: 'event-thumbnail',
@@ -18,6 +21,7 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
         <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
       </div>
       <div [hidden]="!event?.onlineUrl">Online Url: {{ event?.onlineUrl}} </div>
+      <button type="submit" class="btn btn-primary" (click)="handleThumbnailClick(event.name)">Attend</button>
     </div>
   `,
   styles: [`
@@ -32,6 +36,8 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 export class EventThumbnailComponent {
   @Input() event: any 
+
+  constructor(private toastr:ToastrService){}
   
   getStartTimeClass(){
     // HTML
@@ -56,5 +62,9 @@ export class EventThumbnailComponent {
     if(this.event && this.event.time === '8:00 am')
       return { color: '#003300', 'font-weight': 'bold' };
     return {};
+  }
+
+  handleThumbnailClick(eventName) {
+    this.toastr.success(`You will be attending ${eventName}`);
   }
 }
