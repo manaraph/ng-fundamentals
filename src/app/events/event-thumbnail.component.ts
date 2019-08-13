@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { ToastrService } from '../common/toastr.service';
+import { IEvent } from './shared';
 
 // declare let toastr;
 
@@ -35,7 +36,7 @@ import { ToastrService } from '../common/toastr.service';
 })
 
 export class EventThumbnailComponent {
-  @Input() event: any 
+  @Input() event:IEvent 
 
   constructor(private toastr:ToastrService){}
   
