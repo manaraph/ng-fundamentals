@@ -25,7 +25,8 @@
       <div class="navbar-header navbar-right">
         <ul class="nav navbar-nav">
           <li>
-            <a [routerLink]="['user/profile']" routerLinkActive="active" >Welcome m4</a>
+            <a *ngIf="!auth.isAuthenticated()" [routerLink]="['user/login']">Login</a>
+            <a *ngIf="auth.isAuthenticated()" [routerLink]="['user/profile']" routerLinkActive="active" >Welcome {{ auth.currentUser.userName }}</a>
           </li>
         </ul>
       </div>
