@@ -3,7 +3,7 @@ import {
   EventListComponent,
   EventDetailsComponent,
   CreateEventComponent,
-  // EventRouteActivator,
+  EventRouteActivator,
   EventListResolver
  } from "./events/index";
 import { Error404Component } from './errors/404.component';
