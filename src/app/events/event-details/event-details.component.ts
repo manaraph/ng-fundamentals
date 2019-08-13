@@ -13,8 +13,6 @@ export class EventDetailsComponent {
   event: any
   constructor(private eventService:EventService, private route:ActivatedRoute){}
   ngOnInit(){
-    this.event = this.eventService.getEvent(Number(this.route.snapshot.params['id']));
-    console.log(this.event);
-    
+    this.event = this.eventService.getEvent(Number(this.route.snapshot.params['id']));    
   }
 }
