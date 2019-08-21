@@ -1,8 +1,6 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
-import { ToastrService } from '../common/toastr.service';
+import { Component, Input, Output, EventEmitter, Inject } from "@angular/core";
 import { IEvent } from './shared';
-
-// declare let toastr;
+import { TOASTR_TOKEN, Toastr } from "../common/toastr.service";
 
 @Component({
   selector: 'event-thumbnail',
@@ -22,7 +20,7 @@ import { IEvent } from './shared';
         <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
       </div>
       <div [hidden]="!event?.onlineUrl">Online Url: {{ event?.onlineUrl}} </div>
-      <button type="submit" class="btn btn-primary" (click)="handleThumbnailClick(event.name)">Attend</button>
+      <button type="submit" class="btn btn-primary" (click)="handleClick(event.name)" >Attend</button>
     </div>
   `,
   styles: [`
@@ -38,7 +36,7 @@ import { IEvent } from './shared';
 export class EventThumbnailComponent {
   @Input() event:IEvent 
 
-  constructor(private toastr:ToastrService){}
+  constructor(@Inject(TOASTR_TOKEN) private toastr: Toastr){}
   
   getStartTimeClass(){
     // HTML
@@ -64,8 +62,7 @@ export class EventThumbnailComponent {
       return { color: '#003300', 'font-weight': 'bold' };
     return {};
   }
-
-  handleThumbnailClick(eventName) {
-    this.toastr.success(`You will be attending ${eventName}`);
+  handleClick(event){
+    this.toastr.success(`You have booked your spot at ${event} see you there.`)
   }
 }
