@@ -4,7 +4,7 @@ import { ISession, EventService } from '../events';
 
 @Component({
   selector: 'nav-bar',
-  templateUrl: './nav-bar.component.html',
+  templateUrl: './navbar.component.html',
   styles: [`
     .nav.navbar-nav { font-size: 15px; }
     #searchForm { margin-right: 100px; }
