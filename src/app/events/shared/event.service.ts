@@ -11,7 +11,6 @@ export class EventService {
        subject.complete();
      }, 100)
      return subject;
-    //  return EVENTS;  
    }
 
    getEvent(id:number):IEvent{
