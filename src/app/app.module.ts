@@ -16,6 +16,7 @@ import {
   DurationPipe,
   UpvoteComponent,
   VoterService,
+  LocationValidator,
 } from "./events/index";
 import { 
   JQ_TOKEN, 
@@ -50,7 +51,8 @@ let jQuery = window['$'];
     DurationPipe,
     simpleModalComponent,
     ModalTriggerDirective,
-    UpvoteComponent
+    UpvoteComponent,
+    LocationValidator
   ],
   imports: [
     BrowserModule,
