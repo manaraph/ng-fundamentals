@@ -27,16 +27,16 @@ describe('SessionListComponent', () => {
       imports: [],
       declarations: [
         SessionListComponent,
-        // UpvoteComponent,
+        UpvoteComponent,
         DurationPipe,
-        // CollapsibleWellComponent
+        CollapsibleWellComponent
       ],
       providers: [
         { provide: AuthService, useValue: mockAuthService },
         { provide: VoterService, useValue: mockVoterService }
       ],
       schemas: [
-        NO_ERRORS_SCHEMA // This allows us to ignore other components
+        // NO_ERRORS_SCHEMA // This allows us to ignore other components
       ]
     }).compileComponents();
   }));
