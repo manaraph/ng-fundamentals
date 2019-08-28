@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm-run-all --parallel server start:web",
+    "start": "npm-run-all --parallel start:web watch:server watch:test",
     "start:web": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
+    "watch:test": "ng test --watch",
     "server": "node node_modules/ngf-server/server.js",
+    "watch:server": "node node_modules/ngf-server/server.js --watch",
+    "build": "ng build",
+    "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
