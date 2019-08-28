@@ -15,8 +15,13 @@ describe('SessionListComponent', () => {
   debugEl: DebugElement;
 
   beforeEach(async(() => {
-    let mockAuthService = {}, 
-    mockVoterService = {};
+    let mockAuthService = {
+      isAuthenticated: () => true,
+      currentUser: { 'userName': 'Joe' }
+    }, 
+    mockVoterService = {
+      userHasVoted: () => true
+    };
 
     TestBed.configureTestingModule({
       imports: [],
@@ -51,7 +56,8 @@ describe('SessionListComponent', () => {
       component.ngOnChanges();
       fixture.detectChanges();
 
-      expect(element.querySelector('[well-title]').textContent).toContain('Session 1');
+      expect(element.querySelector('[well-title]').textContent).toContain('Session 1'); //Either this or
+      // expect(debugEl.query(By.css('[well-title]')).nativeElement.textContent).toContain('Session 1'); // this works for the test
     });
   });
 });

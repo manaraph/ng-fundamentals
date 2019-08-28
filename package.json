@@ -6,7 +6,7 @@
     "start": "npm-run-all --parallel start:web watch:server watch:test",
     "start:web": "ng serve --proxy-config proxy.conf.json",
     "test": "ng test --sourcemaps=false",
-    "watch:test": "ng test --watch",
+    "watch:test": "ng test --sourcemaps=false --watch",
     "server": "node node_modules/ngf-server/server.js",
     "watch:server": "node node_modules/ngf-server/server.js --watch",
     "build": "ng build",
