@@ -9,7 +9,7 @@
     "watch:test": "ng test --watch",
     "server": "node node_modules/ngf-server/server.js",
     "watch:server": "node node_modules/ngf-server/server.js --watch",
-    "build": "ng build",
+    "build": "ng build --prod",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
