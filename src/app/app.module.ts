@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 
 // import { AppRoutingModule } from './app-routing.module';
-import { 
+import {
   EventListComponent,
   EventThumbnailComponent,
   EventService,
@@ -18,13 +18,13 @@ import {
   VoterService,
   LocationValidator,
   EventResolver,
-} from "./events/index";
-import { 
-  JQ_TOKEN, 
-  TOASTR_TOKEN, 
-  Toastr, 
+} from './events/index';
+import {
+  JQ_TOKEN,
+  TOASTR_TOKEN,
+  Toastr,
   CollapsibleWellComponent,
-  simpleModalComponent,
+  SimpleModalComponent,
   ModalTriggerDirective
 } from './common/index';
 import { EventsAppComponent } from './events-app.component';
@@ -34,8 +34,10 @@ import { Error404Component } from './errors/404.component';
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-let toastr: Toastr = window['toastr'];
-let jQuery = window['$'];
+// tslint:disable-next-line: no-string-literal
+const toastr: Toastr = window['toastr'];
+// tslint:disable-next-line: no-string-literal
+const jQuery = window['$'];
 
 @NgModule({
   declarations: [
@@ -50,7 +52,7 @@ let jQuery = window['$'];
     SessionListComponent,
     CollapsibleWellComponent,
     DurationPipe,
-    simpleModalComponent,
+    SimpleModalComponent,
     ModalTriggerDirective,
     UpvoteComponent,
     LocationValidator
@@ -86,8 +88,9 @@ let jQuery = window['$'];
 })
 export class AppModule { }
 
-export function checkDirtyState(component:CreateEventComponent) {
-  if(component.isDirty)
+export function checkDirtyState(component: CreateEventComponent) {
+  if (component.isDirty) {
     return window.confirm('You have not saved the event, do you really want to cancel?');
+  }
   return true;
 }

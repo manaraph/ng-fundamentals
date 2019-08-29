@@ -1,3 +1,4 @@
-import { InjectionToken } from "@angular/core";
+import { InjectionToken } from '@angular/core';
 
-export let JQ_TOKEN = new InjectionToken<Object>('jQuery')
+// tslint:disable-next-line: ban-types
+export let JQ_TOKEN = new InjectionToken<Object>('jQuery');

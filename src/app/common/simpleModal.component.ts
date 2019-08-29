@@ -1,7 +1,8 @@
-import { Component, Input, ViewChild, ElementRef, Inject } from "@angular/core";
+import { Component, Input, ViewChild, ElementRef, Inject } from '@angular/core';
 import { JQ_TOKEN } from './jQuery.service';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'simple-modal',
   template: `
     <div id="{{elementId}}" #modalcontainer class="modal fade" tabindex="-1">
@@ -23,17 +24,17 @@ import { JQ_TOKEN } from './jQuery.service';
   `]
 })
 
-export class simpleModalComponent {
+export class SimpleModalComponent {
   @Input() title: string;
   @Input() elementId: string;
   @Input() closeOnBodyClick: string;
   @ViewChild('modalcontainer', {static: false}) containerEl: ElementRef;
 
-  constructor(@Inject(JQ_TOKEN) private $: any){}
+  constructor(@Inject(JQ_TOKEN) private $: any) {}
 
   closeModal() {
-    if(this.closeOnBodyClick.toLocaleLowerCase() === "true") {
-      this.$(this.containerEl.nativeElement).modal("hide");
+    if (this.closeOnBodyClick.toLocaleLowerCase() === 'true') {
+      this.$(this.containerEl.nativeElement).modal('hide');
     }
   }
 }

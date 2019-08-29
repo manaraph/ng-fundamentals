@@ -1,8 +1,9 @@
-import { Component, Input, Output, EventEmitter, Inject } from "@angular/core";
+import { Component, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { IEvent } from './shared';
-import { TOASTR_TOKEN, Toastr } from "../common/toastr.service";
+import { TOASTR_TOKEN, Toastr } from '../common/toastr.service';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'event-thumbnail',
   template: `
     <div [routerLink]="['/events', event.id]" class="well hoverwell thumbnail">
@@ -34,17 +35,17 @@ import { TOASTR_TOKEN, Toastr } from "../common/toastr.service";
 })
 
 export class EventThumbnailComponent {
-  @Input() event:IEvent 
+  @Input() event: IEvent;
 
-  constructor(@Inject(TOASTR_TOKEN) private toastr: Toastr){}
-  
-  getStartTimeClass(){
+  constructor(@Inject(TOASTR_TOKEN) private toastr: Toastr) {}
+
+  getStartTimeClass() {
     // HTML
     // <div [ngClass]="getStartTimeClass()" [ngSwitch]="event?.time">
     // Possible options
 
     // green: event?.time === '8:00 am', bold: event?.time === '8:00 am'
-    
+
     // const isEarlyStart = this.event && this.event.time === '8:00 am'
     // return { green: isEarlyStart, bold: isEarlyStart};
 
@@ -52,17 +53,19 @@ export class EventThumbnailComponent {
     //   return 'green bold';
     // return '';
 
-    if(this.event && this.event.time === '8:00 am')
+    if (this.event && this.event.time === '8:00 am') {
       return ['green', 'bold'];
+    }
     return [];
   }
 
-  getStartTimeStyle():any {
-    if(this.event && this.event.time === '8:00 am')
+  getStartTimeStyle(): any {
+    if (this.event && this.event.time === '8:00 am') {
       return { color: '#003300', 'font-weight': 'bold' };
+    }
     return {};
   }
-  handleClick(event){
-    this.toastr.success(`You have booked your spot at ${event} see you there.`)
+  handleClick(event) {
+    this.toastr.success(`You have booked your spot at ${event} see you there.`);
   }
 }
