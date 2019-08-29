@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 // import { AppRoutingModule } from './app-routing.module';
@@ -62,6 +62,7 @@ const jQuery = window['$'];
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
+    // RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules }), // Preload all modules
     HttpClientModule
     // AppRoutingModule
   ],
