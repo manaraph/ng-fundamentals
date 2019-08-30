@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "npm-run-all --parallel start:web watch:server watch:test",
-    "start:web": "ng serve --proxy-config proxy.conf.json",
+    "start:web": "ng serve --proxy-config proxy.conf.json -o",
     "test": "ng test --sourcemaps=false",
     "watch:test": "ng test --watch",
     "server": "node node_modules/ngf-server/server.js",
